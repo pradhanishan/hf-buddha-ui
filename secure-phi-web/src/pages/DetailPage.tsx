@@ -37,8 +37,8 @@ const DetailPage: FC = () => {
       // SEND API REQUEST HERE
 
       const response = await fetch(
-        `${config.SERVER_URL}/uploadReturn/outing.jpg`
-        // `${config.SERVER_URL}/uploadReturn/${fileName}`
+        // `${config.SERVER_URL}/uploadReturn/outing.jpg`
+        `${config.SERVER_URL}/uploadReturn/${fileName}`
       );
       const responseData = await response.json();
 
