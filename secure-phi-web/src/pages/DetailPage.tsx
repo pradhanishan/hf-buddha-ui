@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import ProcessedImage from "../components/ProcessedImage";
 import Spinner from "react-bootstrap/Spinner";
 import DUMMY_IMAGE from "../assets/images/test.jpg";
+import { config } from "../config";
 
 const DetailPage: FC = () => {
   const data: {
@@ -21,7 +22,7 @@ const DetailPage: FC = () => {
     imageURL: string;
     isResponseComplete: boolean;
   }>({
-    imageURL: "TO BE REPLACED",
+    imageURL: "",
     isResponseComplete: false,
   });
 
@@ -29,8 +30,15 @@ const DetailPage: FC = () => {
   useEffect(() => {
     const fetchProcesssedImage = async () => {
       // SEND API REQUEST HERE
+
+      const response = await fetch(
+        `${config.SERVER_URL}/uploadReturn/outing.jpg`
+      );
+      const responseData = await response.json();
+      console.log(responseData);
+
       setProcessedImage({
-        imageURL: DUMMY_IMAGE,
+        imageURL: `http://127.0.0.1:5000/${responseData}`,
         isResponseComplete: true,
       });
     };
