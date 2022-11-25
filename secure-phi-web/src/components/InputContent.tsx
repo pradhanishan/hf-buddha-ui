@@ -36,7 +36,7 @@ const InputContent: FC = () => {
     if (fileInput.content != null) {
       console.log(fileInput.content);
       const data = new FormData();
-      data.append(fileInput.imageName, file);
+      data.append("files[]", file);
       console.log(data);
       const response = await fetch(`${config.SERVER_URL}/upload`, {
         method: "POST",
