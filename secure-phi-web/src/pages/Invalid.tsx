@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classes from "./invalid.module.css";
 import { MdError } from "react-icons/md";
-import Button from "react-bootstrap/button";
+import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 
 const Invalid: FC = () => {

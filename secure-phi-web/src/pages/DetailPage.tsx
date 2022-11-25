@@ -2,10 +2,7 @@ import { FC, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ProcessedImage from "../components/ProcessedImage";
 import Spinner from "react-bootstrap/Spinner";
-import DUMMY_IMAGE from "../assets/images/test.jpg";
 import { config } from "../config";
-import { RiFileDownloadFill } from "react-icons/ri";
-import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
 import classes from "./detail-page.module.css";
 
