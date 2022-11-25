@@ -10,6 +10,7 @@ import { toogleDarkMode } from "../stores/slices/themeSlice";
 import { useAppDispatch, useAppSelector } from "../hooks/rtk";
 import { BsFillSunFill } from "react-icons/bs";
 import { BsMoonFill } from "react-icons/bs";
+import { SiFsecure } from "react-icons/si";
 
 const Header: FC = () => {
   const dispatch = useAppDispatch();
@@ -19,7 +20,10 @@ const Header: FC = () => {
     <header>
       <Navbar bg="dark" expand="lg" variant="dark">
         <Container fluid>
-          <Navbar.Brand>Secure PHI</Navbar.Brand>
+          <Navbar.Brand>
+            <SiFsecure  className="mx-3"/>
+            Secure PHI
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav

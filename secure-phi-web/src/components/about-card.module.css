@@ -43,22 +43,22 @@
 }
 
 .f-card {
-  background-color: #FF97C1;
+  background-color: #ff97c1;
   color: var(--color-dark-font);
 }
 
 .g-card {
-  background-color: #EFECEC;
+  background-color: #efecec;
   color: var(--color-dark-font);
 }
 
 .h-card {
-  background-color: #47597E;
+  background-color: #0a3442;
   color: var(--color-primary-font);
 }
 
-.about-card-heading{
-    display:flex;
-    width:100%;
-    justify-content: space-between;
+.about-card-heading {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
