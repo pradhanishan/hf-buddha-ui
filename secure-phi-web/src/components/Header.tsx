@@ -22,7 +22,7 @@ const Header: FC = () => {
         <Container fluid>
           <Navbar.Brand>
             <SiFsecure  className="mx-3"/>
-            Secure PHI
+            Secure PHI X
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
