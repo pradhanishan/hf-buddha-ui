@@ -66,12 +66,14 @@ const InputContent: FC = () => {
     >
       <h5>Add Image of PDF for scan</h5>
       <hr />
-      <input
-        type="file"
-        accept="image/jpeg,application.pdf,image/png"
-        className="mb-3"
-        onChange={handleFileUpload}
-      />
+      <label className={classes["input-label"]}>
+        <input
+          type="file"
+          accept="image/jpeg,application.pdf,image/png"
+          className="mb-3"
+          onChange={handleFileUpload}
+        />
+      </label>
       <br />
 
       <Button

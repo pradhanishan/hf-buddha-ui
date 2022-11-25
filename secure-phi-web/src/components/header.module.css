@@ -6,7 +6,14 @@
 
 .active-header-nav {
   color: var(--color-primary-accent);
-  font-weight:bold;
+  font-weight: bold;
   text-decoration: none;
   margin-right: 1rem;
+}
+
+.header-nav:focus,
+.header-nav:hover,
+.active-header-nav:focus,
+.active-header-nav:hover {
+  color: #f06292;
 }

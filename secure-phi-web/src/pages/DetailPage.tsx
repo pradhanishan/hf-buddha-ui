@@ -7,6 +7,7 @@ import { config } from "../config";
 import { RiFileDownloadFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
 import { useNavigate } from "react-router-dom";
+import classes from "./detail-page.module.css";
 
 const DetailPage: FC = () => {
   const navigate = useNavigate();
@@ -58,9 +59,10 @@ const DetailPage: FC = () => {
   return (
     <>
       <div>
-        {fileName}
         {processedImage.isResponseComplete ? (
-          <>
+          <div className={classes["detail-page"]}>
+            <h5 className="mb-3">{fileName} [SECURE]</h5>
+
             <ProcessedImage
               imageName={fileName}
               imageURL={processedImage.imageURL}
@@ -71,7 +73,7 @@ const DetailPage: FC = () => {
                 <RiFileDownloadFill size={32} />
               </Button>
             </div> */}
-          </>
+          </div>
         ) : (
           <div>
             <p>Loading....</p>
