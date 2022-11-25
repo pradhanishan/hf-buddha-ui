@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import { IoIosQrScanner } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../hooks/rtk";
+import { config } from "../config";
 
 const InputContent: FC = () => {
   const theme = useAppSelector((state) => state.theme);
@@ -27,11 +28,28 @@ const InputContent: FC = () => {
   };
 
   // handle what to do when file is submitted
-  const handleSubmitFile = (event: any) => {
+  const handleSubmitFile = async (event: any) => {
     event.preventDefault();
-    navigate("/detail", {
-      state: { fileName: fileInput.imageName.toString() },
-    });
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        file: fileInput.content,
+        fileName: fileInput.imageName,
+      }),
+    };
+
+    const response = await fetch(`${config.SERVER_URL}/upload`, requestOptions);
+    const responseData = await response.json();
+
+    if (responseData.ok) {
+      navigate("/detail", {
+        state: { fileName: fileInput.imageName.toString() },
+      });
+    } else {
+      // redirect to error
+    }
   };
 
   return (
