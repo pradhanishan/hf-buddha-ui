@@ -50,9 +50,9 @@ const Header: FC = () => {
             </Nav>
             <Form className="d-flex">
               {theme.darkMode ? (
-                <BsFillSunFill size={32} color="yellow" className="mx-3" />
+                <BsFillSunFill size={32} color="#FED049" className="mx-3" />
               ) : (
-                <BsMoonFill size={32} color="white" className="mx-3" />
+                <BsMoonFill size={32} color="#F3EFE0" className="mx-3" />
               )}
               <Form.Check
                 type="switch"

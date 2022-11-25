@@ -9,9 +9,9 @@
 }
 
 .input-content {
-  border: 1px solid var(--color-primary-font);
+  border: 2px solid var(--color-primary-font);
 }
 
 .input-content-light {
-  border: 1px solid var(--color-dark-font);
+  border: 2px solid var(--color-dark-font);
 }
