@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import classes from "./input-content.module.css";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Button from "react-bootstrap/Button";
+import { IoIosQrScanner } from "react-icons/io";
 
 const InputContent: FC = () => {
   const [fileInput, setFileInput] = useState<{
@@ -42,8 +43,13 @@ const InputContent: FC = () => {
         type="submit"
         onClick={handleSubmitFile}
         disabled={!fileInput.isFileAdded}
+        style={{
+          display: "flex",
+          alignItems: "center",
+        }}
       >
         Scan
+        <IoIosQrScanner style={{ marginLeft: "1rem" }} />
       </Button>
 
       {/* <ProgressBar animated now={45} /> */}
