@@ -5,6 +5,7 @@ import { IoIosQrScanner } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../hooks/rtk";
 import { config } from "../config";
+import { constants } from "fs/promises";
 
 const InputContent: FC = () => {
   const theme = useAppSelector((state) => state.theme);
@@ -31,29 +32,27 @@ const InputContent: FC = () => {
   const handleSubmitFile = async (event: any) => {
     event.preventDefault();
 
-    // const requestOptions = {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify({
-    //     file: fileInput.content,
-    //     fileName: fileInput.imageName,
-    //   }),
-    // };
+    const file = fileInput.content;
+    if (fileInput.content != null) {
+      const data = new FormData();
+      data.append("file_from_react", file);
 
-    // const response = await fetch(`${config.SERVER_URL}/upload`, requestOptions);
-    // const responseData = await response.json();
+      const response = await fetch(`${config.SERVER_URL}/upload`, {
+        method: "post",
+        body: data,
+      });
 
-    // if (responseData.ok) {
-    //   navigate("/detail", {
-    //     state: { fileName: fileInput.imageName.toString() },
-    //   });
-    // } else {
-    //   // redirect to error
-    // }
+      const responseData = await response.json();
 
-    navigate("/detail", {
-      state: { fileName: fileInput.imageName.toString() },
-    });
+      if (responseData.ok) {
+        navigate("/detail", {
+          state: { fileName: fileInput.imageName.toString() },
+        });
+      } else {
+        navigate("/invalid");
+        // redirect to error
+      }
+    }
   };
 
   return (
