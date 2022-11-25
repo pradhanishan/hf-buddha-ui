@@ -44,8 +44,6 @@ const InputContent: FC = () => {
 
       const responseData = await response.json();
 
-      console.log(responseData);
-
       if (responseData.ok) {
         navigate("/detail", {
           state: { fileName: fileInput.imageName.toString() },
