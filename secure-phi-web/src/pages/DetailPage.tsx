@@ -4,6 +4,8 @@ import ProcessedImage from "../components/ProcessedImage";
 import Spinner from "react-bootstrap/Spinner";
 import DUMMY_IMAGE from "../assets/images/test.jpg";
 import { config } from "../config";
+import { RiFileDownloadFill } from "react-icons/ri";
+import Button from "react-bootstrap/Button";
 
 const DetailPage: FC = () => {
   const data: {
@@ -50,10 +52,18 @@ const DetailPage: FC = () => {
       <div>
         {fileName}
         {processedImage.isResponseComplete ? (
-          <ProcessedImage
-            imageName={fileName}
-            imageURL={processedImage.imageURL}
-          />
+          <>
+            <ProcessedImage
+              imageName={fileName}
+              imageURL={processedImage.imageURL}
+            />
+            {/* <div className="pt-3">
+              <Button variant="success">
+                Download
+                <RiFileDownloadFill size={32} />
+              </Button>
+            </div> */}
+          </>
         ) : (
           <div>
             <p>Loading....</p>
