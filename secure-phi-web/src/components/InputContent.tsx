@@ -38,11 +38,13 @@ const InputContent: FC = () => {
       data.append("file_from_react", file);
 
       const response = await fetch(`${config.SERVER_URL}/upload`, {
-        method: "post",
+        method: "POST",
         body: data,
       });
 
       const responseData = await response.json();
+
+      console.log(responseData);
 
       if (responseData.ok) {
         navigate("/detail", {
