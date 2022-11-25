@@ -1,0 +1,12 @@
+.header-nav {
+  color: var(--color-primary-font);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+.active-header-nav {
+  color: var(--color-primary-accent);
+  font-weight:bold;
+  text-decoration: none;
+  margin-right: 1rem;
+}

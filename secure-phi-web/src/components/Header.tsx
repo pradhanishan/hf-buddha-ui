@@ -1,0 +1,61 @@
+import { FC } from "react";
+import Button from "react-bootstrap/Button";
+import Container from "react-bootstrap/Container";
+import Form from "react-bootstrap/Form";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import { NavLink } from "react-router-dom";
+import classes from "./header.module.css";
+
+const Header: FC = () => {
+  return (
+    <header>
+      {" "}
+      <Navbar bg="dark" expand="lg" variant="dark">
+        <Container fluid>
+          <Navbar.Brand>Secure PHI</Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: "100px" }}
+              navbarScroll
+            >
+              <NavLink
+                to=""
+                className={({ isActive }) =>
+                  isActive
+                    ? classes["active-header-nav"]
+                    : classes["header-nav"]
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/about"
+                className={({ isActive }) =>
+                  isActive
+                    ? classes["active-header-nav"]
+                    : classes["header-nav"]
+                }
+              >
+                About
+              </NavLink>
+            </Nav>
+            <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="me-2"
+                aria-label="Search"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </header>
+  );
+};
+
+export default Header;
