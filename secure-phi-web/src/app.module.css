@@ -1,6 +1,16 @@
-.app {
+.app,
+.app-light {
   min-height: 100vh;
+
+  padding: 1rem;
+}
+
+.app {
   background-color: var(--color-primary-background);
   color: var(--color-primary-font);
-  padding: 1rem;
+}
+
+.app-light {
+  background-color: var(--color-light-background);
+  color: var(--color-dark-font);
 }

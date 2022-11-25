@@ -6,11 +6,17 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { NavLink } from "react-router-dom";
 import classes from "./header.module.css";
+import { toogleDarkMode } from "../stores/slices/themeSlice";
+import { useAppDispatch, useAppSelector } from "../hooks/rtk";
+import { BsFillSunFill } from "react-icons/bs";
+import { BsMoonFill } from "react-icons/bs";
 
 const Header: FC = () => {
+  const dispatch = useAppDispatch();
+  const theme = useAppSelector((state) => state.theme);
+
   return (
     <header>
-      {" "}
       <Navbar bg="dark" expand="lg" variant="dark">
         <Container fluid>
           <Navbar.Brand>Secure PHI</Navbar.Brand>
@@ -43,13 +49,28 @@ const Header: FC = () => {
               </NavLink>
             </Nav>
             <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search"
-                className="me-2"
-                aria-label="Search"
+              {theme.darkMode ? (
+                <BsFillSunFill size={32} color="yellow" className="mx-3" />
+              ) : (
+                <BsMoonFill size={32} color="white" className="mx-3" />
+              )}
+              <Form.Check
+                type="switch"
+                id="custom-switch"
+                label="Check this switch"
+                checked={!theme.darkMode}
+                onChange={() => {
+                  dispatch(toogleDarkMode());
+                }}
               />
-              <Button variant="outline-success">Search</Button>
+              {/* <Button
+                variant={theme.darkMode?""}
+                onClick={() => {
+                  dispatch(toogleDarkMode());
+                }}
+              >
+                Toogle Mode
+              </Button> */}
             </Form>
           </Navbar.Collapse>
         </Container>

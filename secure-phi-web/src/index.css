@@ -6,8 +6,9 @@
 
 html {
   font-size: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
@@ -18,25 +19,8 @@ html {
   --color-primary-font-dark: #303841;
   --color-primary-accent: #f73859;
 
-  /* type colors */
-  --color-type-normal: #f9f2ed;
-  --color-type-fire: #dc3535;
-  --color-type-water: #3ab4f2;
-  --color-type-grass: #4e6c50;
-  --color-type-electric: #ffb200;
-  --color-type-ice: #7fbcd2;
-  --color-type-fighting: #a62349;
-  --color-type-poison: #3b185f;
-  --color-type-ground: #c69749;
-  --color-type-rock: #735f32;
-  --color-type-flying: #cdf0ea;
-  --color-type-psychic: #2a0944;
-  --color-type-bug: #829460;
-  --color-type-ghost: #3c4048;
-  --color-type-dark: #181818;
-  --color-type-dragon: #4649ff;
-  --color-type-steel: #b2b2b2;
-  --color-type-fairy: #ff8dc7;
+  --color-light-background: #ffffff;
+  --color-dark-font: #000000;
 }
 
 body {
@@ -45,5 +29,6 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }

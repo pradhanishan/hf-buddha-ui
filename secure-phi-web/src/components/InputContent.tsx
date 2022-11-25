@@ -3,8 +3,10 @@ import classes from "./input-content.module.css";
 import Button from "react-bootstrap/Button";
 import { IoIosQrScanner } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
+import { useAppSelector } from "../hooks/rtk";
 
 const InputContent: FC = () => {
+  const theme = useAppSelector((state) => state.theme);
   const navigate = useNavigate();
   const [fileInput, setFileInput] = useState<{
     content: any | null;
@@ -33,7 +35,13 @@ const InputContent: FC = () => {
   };
 
   return (
-    <div className={classes["input-content"]}>
+    <div
+      className={
+        theme.darkMode
+          ? classes["input-content"]
+          : classes["input-content-light"]
+      }
+    >
       <h5>Add Image of PDF for scan</h5>
       <hr />
       <input
