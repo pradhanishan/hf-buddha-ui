@@ -31,25 +31,29 @@ const InputContent: FC = () => {
   const handleSubmitFile = async (event: any) => {
     event.preventDefault();
 
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        file: fileInput.content,
-        fileName: fileInput.imageName,
-      }),
-    };
+    // const requestOptions = {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify({
+    //     file: fileInput.content,
+    //     fileName: fileInput.imageName,
+    //   }),
+    // };
 
-    const response = await fetch(`${config.SERVER_URL}/upload`, requestOptions);
-    const responseData = await response.json();
+    // const response = await fetch(`${config.SERVER_URL}/upload`, requestOptions);
+    // const responseData = await response.json();
 
-    if (responseData.ok) {
-      navigate("/detail", {
-        state: { fileName: fileInput.imageName.toString() },
-      });
-    } else {
-      // redirect to error
-    }
+    // if (responseData.ok) {
+    //   navigate("/detail", {
+    //     state: { fileName: fileInput.imageName.toString() },
+    //   });
+    // } else {
+    //   // redirect to error
+    // }
+
+    navigate("/detail", {
+      state: { fileName: fileInput.imageName.toString() },
+    });
   };
 
   return (

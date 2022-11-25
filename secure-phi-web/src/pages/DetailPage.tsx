@@ -6,8 +6,10 @@ import DUMMY_IMAGE from "../assets/images/test.jpg";
 import { config } from "../config";
 import { RiFileDownloadFill } from "react-icons/ri";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom";
 
 const DetailPage: FC = () => {
+  const navigate = useNavigate();
   const data: {
     hash: any;
     key: any;
@@ -34,15 +36,21 @@ const DetailPage: FC = () => {
       // SEND API REQUEST HERE
 
       const response = await fetch(
-        `${config.SERVER_URL}/uploadReturn/${fileName}`
+        `${config.SERVER_URL}/uploadReturn/outing.jpg`
+        // `${config.SERVER_URL}/uploadReturn/${fileName}`
       );
       const responseData = await response.json();
+
       console.log(responseData);
 
-      setProcessedImage({
-        imageURL: `http://127.0.0.1:5000/${responseData}`,
-        isResponseComplete: true,
-      });
+      if (responseData.response_code === 200) {
+        setProcessedImage({
+          imageURL: `http://127.0.0.1:5000/${responseData.path}`,
+          isResponseComplete: true,
+        });
+      } else {
+        navigate("invalid");
+      }
     };
     fetchProcesssedImage();
   }, []);
