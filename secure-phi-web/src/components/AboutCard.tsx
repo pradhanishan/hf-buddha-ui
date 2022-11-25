@@ -58,7 +58,7 @@ const AboutCard: FC<IAboutCardProps> = (props: IAboutCardProps) => {
         )}
         <h5>{heading}</h5>
       </div>
-            <hr/>
+      <hr />
       <p style={{ fontStyle: "italic" }}>{description}</p>
     </div>
   );
