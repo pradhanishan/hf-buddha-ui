@@ -39,7 +39,6 @@ const DetailPage: FC = () => {
   };
 
   const toggleCompareMode = () => {
-    setCompareMode(false);
     setCompareMode(true);
   };
 
