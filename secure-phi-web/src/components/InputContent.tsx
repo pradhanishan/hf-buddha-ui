@@ -81,7 +81,7 @@ const InputContent: FC = () => {
         variant="success"
         type="submit"
         onClick={handleSubmitFile}
-        disabled={!fileInput.isFileAdded}
+        disabled={!fileInput.isFileAdded || loading}
         style={{
           display: "flex",
           alignItems: "center",
