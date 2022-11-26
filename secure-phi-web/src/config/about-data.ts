@@ -3,53 +3,55 @@ export const aboutData = [
     key: 1,
     heading: "User Interface",
     description:
-      "Made with React JS and typescript, you can upload images and PDFs.",
+      "Single page application made using create-react-app with typescript template",
     cardType: "red-card",
   },
   {
     key: 2,
-    heading: "Text Scan",
+    heading: "OCR",
     description:
-      "The image is received through a Flask API endpoint and scanned and the text in the image is retrieved through pytessaract.",
+      "We are using pytessaract to detect and extract text from images. ",
     cardType: "blue-card",
   },
   {
     key: 3,
-    heading: "PHI Data",
-    description: "PHI data is identified through ML",
+    heading: "Named ER",
+    description:
+      "We have used robota transformer based model for named entity recognition. For NLP related tasks, we have used Spacy.",
     cardType: "yellow-card",
   },
   {
     key: 4,
-    heading: "End Result",
+    heading: "Open CV",
     description:
-      "The user is given a protected image hiding all PHI data and information regarding the PHI data that were present in the file",
+      "The identified PHI data is marked with pixel precision in images using Open CV",
     cardType: "green-card",
   },
   {
     key: 5,
-    heading: "Developers",
-    description: "Ishan Pradhan, Manoj Joshi, Subash Mahat, Shrijal Byanjankar",
+    heading: "Server",
+    description:
+      "We are using Flask REST API server to ingest images to be processed and to send PHI identified images back to client",
     cardType: "green-card",
   },
   {
     key: 6,
+    heading: "Developers",
+    description:
+      "Ishan Pradhan, Manoj Joshi(), Shrijal Byanjankar, Subash Mahat",
+    cardType: "green-card",
+  },
+  {
+    key: 7,
     heading: "Team",
     description: "Straight Outta Submissions!",
     cardType: "green-card",
   },
   {
-    key: 7,
-    heading: "Filler",
-    description:
-      "lorema skdfasdkfsak fjsalkdfj asldkfj aslkfj aslkjflasj lorema skdfasdkfsak fjsalkdfj asldkfj aslkfj aslkjflasj ",
-    cardType: "green-card",
-  },
-  {
     key: 8,
-    heading: "Filler",
+    heading: "Deployment",
     description:
-      "lorema skdfasdkfsak fjsalkdfj asldkfj aslkfj aslkjflasj lorema skdfasdkfsak fjsalkdfj asldkfj aslkfj aslkjflasj ",
+      "Client application deployed using Vercel which points to remote github repository. Server deployment in progress",
     cardType: "green-card",
   },
 ];
