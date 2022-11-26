@@ -38,7 +38,7 @@ export const aboutData = [
     key: 6,
     heading: "Developers",
     description:
-      "Ishan Pradhan, Manoj Joshi(), Shrijal Byanjankar, Subash Mahat",
+      "Ishan Pradhan, Manoj Joshi, Shrijal Byanjankar, Subash Mahat",
     cardType: "green-card",
   },
   {
