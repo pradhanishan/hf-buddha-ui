@@ -87,8 +87,14 @@ const InputContent: FC = () => {
           alignItems: "center",
         }}
       >
-        {loading ? <Spinner animation="border" variant="secondary" /> : "scan"}
-        <IoIosQrScanner style={{ marginLeft: "1rem" }} />
+        {loading ? (
+          <Spinner animation="border" variant="secondary" />
+        ) : (
+          <span>
+            Scan
+            <IoIosQrScanner style={{ marginLeft: "1rem" }} />
+          </span>
+        )}
       </Button>
     </div>
   );
