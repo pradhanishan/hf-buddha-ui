@@ -155,20 +155,27 @@ const DetailPage: FC = () => {
                 </Button>
               </div>
               {!compareMode && displayMode.original && (
-                <ProcessedImage
-                  imageName="ORIGINAL"
-                  imageURL={originalImage.imageURL}
-                />
+                <>
+                  <h5>Original Image</h5>
+                  <ProcessedImage
+                    imageName="ORIGINAL"
+                    imageURL={originalImage.imageURL}
+                  />
+                </>
               )}
               {!compareMode && !displayMode.original && (
-                <ProcessedImage
-                  imageName={fileName}
-                  imageURL={processedImage.imageURL}
-                />
+                <>
+                  <h5>Processed Image</h5>
+                  <ProcessedImage
+                    imageName={fileName}
+                    imageURL={processedImage.imageURL}
+                  />
+                </>
               )}
 
               {compareMode ? (
                 <>
+                <h5>Compared images</h5>
                   <ProcessedImage
                     imageName="ORIGINAL"
                     imageURL={originalImage.imageURL}
