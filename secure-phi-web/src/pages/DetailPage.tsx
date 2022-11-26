@@ -35,6 +35,7 @@ const DetailPage: FC = () => {
   };
 
   const toggleDisplayMaskedImageMode = () => {
+    setCompareMode(false);
     setDisplayMode({ original: false });
   };
 
