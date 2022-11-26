@@ -65,7 +65,7 @@ const InputContent: FC = () => {
           : classes["input-content-light"]
       }
     >
-      <h5>Add Image of PDF for scan</h5>
+      <h5>Add Image for scan</h5>
       <hr />
       <label className={classes["input-label"]}>
         <input
