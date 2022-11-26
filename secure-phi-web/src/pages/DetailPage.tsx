@@ -8,7 +8,7 @@ import classes from "./detail-page.module.css";
 import Button from "react-bootstrap/Button";
 import { MdKeyboardBackspace, MdCropOriginal } from "react-icons/md";
 import { GiDualityMask } from "react-icons/gi";
-import DUMMYIMAGE from "../assets/images/test.jpg";
+import { MdOutlineCompare } from "react-icons/md";
 
 const DetailPage: FC = () => {
   const navigate = useNavigate();
@@ -27,12 +27,20 @@ const DetailPage: FC = () => {
     original: false,
   });
 
+  const [compareMode, setCompareMode] = useState<boolean>(false);
+
   const toggleDisplayOriginalImageMode = () => {
+    setCompareMode(false);
     setDisplayMode({ original: true });
   };
 
   const toggleDisplayMaskedImageMode = () => {
     setDisplayMode({ original: false });
+  };
+
+  const toggleCompareMode = () => {
+    setCompareMode(false);
+    setCompareMode(true);
   };
 
   //
@@ -88,8 +96,6 @@ const DetailPage: FC = () => {
       );
       const responseData = await response.json();
 
-      console.log(responseData);
-
       if (responseData.response_code === 200) {
         setOriginalImage({
           imageURL: `http://127.0.0.1:5000/${responseData.path}`,
@@ -106,69 +112,81 @@ const DetailPage: FC = () => {
     <>
       <div>
         <div className={classes["detail-page"]}>
-          <h5 className="mb-3">{fileName} [SECURE]</h5>
-        </div>
-        {processedImage.isResponseComplete &&
-        originalImage.isResponseComplete ? (
-          <div className={classes["detail-page"]}>
-            <h5 className="mb-3">{fileName} [SECURE]</h5>
-            <div className={classes["buttons-container"]}>
-              {!displayMode.original && (
+          {processedImage.isResponseComplete &&
+          originalImage.isResponseComplete ? (
+            <div className={classes["detail-page"]}>
+              <h5 className="mb-3">{fileName}</h5>
+              <div className={classes["buttons-container"]}>
+                {!displayMode.original && (
+                  <Button
+                    className={classes["details-page-button"]}
+                    variant="secondary"
+                    onClick={toggleDisplayOriginalImageMode}
+                  >
+                    Show original <MdCropOriginal />
+                  </Button>
+                )}
+                {!compareMode && (
+                  <Button
+                    className={classes["details-page-button"]}
+                    variant="secondary"
+                    onClick={toggleCompareMode}
+                  >
+                    Compare <MdOutlineCompare />
+                  </Button>
+                )}
+                {displayMode.original && (
+                  <Button
+                    className={classes["details-page-button"]}
+                    variant="secondary"
+                    onClick={toggleDisplayMaskedImageMode}
+                  >
+                    Show masked <GiDualityMask />
+                  </Button>
+                )}
                 <Button
                   className={classes["details-page-button"]}
-                  variant="secondary"
-                  onClick={toggleDisplayOriginalImageMode}
+                  variant="danger"
+                  onClick={() => {
+                    navigate("/");
+                  }}
                 >
-                  Show original <MdCropOriginal />
+                  go back <MdKeyboardBackspace />
                 </Button>
+              </div>
+              {!compareMode && displayMode.original && (
+                <ProcessedImage
+                  imageName="ORIGINAL"
+                  imageURL={originalImage.imageURL}
+                />
               )}
-              {displayMode.original && (
-                <Button
-                  className={classes["details-page-button"]}
-                  variant="secondary"
-                  onClick={toggleDisplayMaskedImageMode}
-                >
-                  Show masked <GiDualityMask />
-                </Button>
+              {!compareMode && !displayMode.original && (
+                <ProcessedImage
+                  imageName={fileName}
+                  imageURL={processedImage.imageURL}
+                />
               )}
-              <Button
-                className={classes["details-page-button"]}
-                variant="danger"
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                go back <MdKeyboardBackspace />
-              </Button>
+
+              {compareMode ? (
+                <>
+                  <ProcessedImage
+                    imageName="ORIGINAL"
+                    imageURL={originalImage.imageURL}
+                  />
+                  <ProcessedImage
+                    imageName={fileName}
+                    imageURL={processedImage.imageURL}
+                  />
+                </>
+              ) : null}
             </div>
-            {displayMode.original && (
-              <ProcessedImage
-                imageName="ORIGINAL"
-                imageURL={originalImage.imageURL}
-              />
-            )}
-            {!displayMode.original && (
-              <ProcessedImage
-                imageName={fileName}
-                imageURL={processedImage.imageURL}
-              />
-            )}
-            // display both at once
-            {/* <ProcessedImage
-              imageName="ORIGINAL"
-              imageURL={originalImage.imageURL}
-            />
-            <ProcessedImage
-              imageName={fileName}
-              imageURL={processedImage.imageURL}
-            /> */}
-          </div>
-        ) : (
-          <div>
-            <p>Loading....</p>
-            <Spinner animation="grow" variant="light" />
-          </div>
-        )}
+          ) : (
+            <div>
+              <p>Loading....</p>
+              <Spinner animation="grow" variant="light" />
+            </div>
+          )}
+        </div>
       </div>
     </>
   );
