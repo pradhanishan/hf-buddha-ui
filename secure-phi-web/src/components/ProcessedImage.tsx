@@ -1,6 +1,6 @@
 import { FC } from "react";
 import classes from "./processed-image.module.css";
-
+import DUMMY_IMAGE from "../assets/images/test.jpg";
 interface IProcessedImageProps {
   imageName: string;
   imageURL: string;

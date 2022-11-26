@@ -5,3 +5,16 @@
     text-align: center;
     flex-direction: column;
 }
+
+.buttons-container{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details-page-button{
+   margin-right:1rem; 
+   display:flex;
+   justify-content: center;
+   align-items: center;
+}

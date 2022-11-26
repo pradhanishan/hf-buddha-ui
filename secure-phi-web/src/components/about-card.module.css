@@ -18,17 +18,17 @@
   filter: brightness(110%);
 }
 .a-card {
-  background-color: #6a2c70;
+  background-color: #975c8d;
   color: var(--color-primary-font);
 }
 
 .b-card {
-  background-color: #bbe1fa;
+  background-color: #cff5e7;
   color: var(--color-dark-font);
 }
 
 .c-card {
-  background-color: #f9d923;
+  background-color: #ffd372;
   color: var(--color-dark-font);
 }
 
@@ -43,7 +43,7 @@
 }
 
 .f-card {
-  background-color: #ff97c1;
+  background-color: #ffcaca;
   color: var(--color-dark-font);
 }
 
