@@ -175,11 +175,12 @@ const DetailPage: FC = () => {
 
               {compareMode ? (
                 <>
-                <h5>Compared images</h5>
+                <h5>Original Image</h5>
                   <ProcessedImage
                     imageName="ORIGINAL"
                     imageURL={originalImage.imageURL}
                   />
+                  <h5>Processed Image</h5>
                   <ProcessedImage
                     imageName={fileName}
                     imageURL={processedImage.imageURL}
